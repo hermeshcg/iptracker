@@ -11,6 +11,7 @@ import patternBg from './images/pattern-bg.png';
 import arrow from './images/icon-arrow.svg';
 
 import api from './services/api';
+import IpCard from './components/IpCard';
 
 function App() {
   const [ip, setIp] = useState('0.0.0.0');
@@ -37,6 +38,14 @@ function App() {
     setTimezone(data.location.timezone);
     setISP(data.isp);
   }
+  const dataComp = {
+    city: city,
+    ip: ip,
+    country: country,
+    postalCode: postalCode,
+    timezone: timezone,
+    isp: ISP,
+  };
 
   return (
     <Container>
@@ -60,32 +69,7 @@ function App() {
         </form>
       </div>
 
-      <div className="ip-content">
-        <div className="ip-address">
-          <h5>IP ADDRESS</h5>
-          <strong>{ip}</strong>
-        </div>
-
-        <div className="ip-location">
-          <h5>LOCATION</h5>
-          <div className="ip-location-info">
-            <strong>
-              {city}, {country}
-            </strong>
-            <strong>{postalCode}</strong>
-          </div>
-        </div>
-
-        <div className="ip-timezone">
-          <h5>TIMEZONE</h5>
-          <strong>UTC {timezone}</strong>
-        </div>
-
-        <div className="ip-isp">
-          <h5>ISP</h5>
-          <strong>{ISP}</strong>
-        </div>
-      </div>
+      <IpCard data={dataComp} />
 
       <Map
         center={[position.latitude, position.longitude]}
