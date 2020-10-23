@@ -99,7 +99,7 @@ function App() {
         }}
       >
         <TileLayer
-          url={`https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiaGVybWVzLWNhcmV0dGEiLCJhIjoiY2tnNnY0cnFkMDE3dDJycW9tc2N1aGM4ZiJ9.Y9ce25Fz4n_PYJ08awiAkg`}
+          url={`https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}@2x?access_token=${process.env.REACT_APP_MAPBOX_TOKEN}`}
         />
         <Marker
           position={[position.latitude, position.longitude]}
