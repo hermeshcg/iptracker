@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  img {
+  .imgBg {
     position: absolute;
     z-index: 2;
+    width: 100%;
   }
 
   .header {
@@ -133,6 +134,79 @@ export const Container = styled.div`
       h5 {
         padding-bottom: 17px;
       }
+    }
+  }
+
+  @media (max-width: 800px) {
+    .imgBg {
+      width: 100vw;
+      height: 333px;
+    }
+    .header {
+      width: 100vw;
+      .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .input-button {
+          width: 90%;
+          margin-left: 20px;
+        }
+      }
+    }
+
+    .ip-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      width: 80%;
+      height: 90%;
+      margin-left: 40px;
+      .ip-address {
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .ip-location {
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        h5 {
+          padding-bottom: 4px;
+        }
+        .ip-location-info {
+          display: flex;
+          flex-direction: row;
+          align-items: center;
+          justify-content: center;
+          strong {
+            padding-left: 10px;
+          }
+        }
+      }
+      .ip-timezone {
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .ip-isp {
+        padding: 10px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .map {
+      height: 100vh;
+      width: 100vw;
     }
   }
 `;

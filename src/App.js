@@ -40,7 +40,7 @@ function App() {
 
   return (
     <Container>
-      <img src={patternBg} alt="" width="100%" />
+      <img src={patternBg} alt="" className="imgBg" />
       <div className="header">
         <form onSubmit={handleSubmit}>
           <div className="content">
@@ -68,10 +68,12 @@ function App() {
 
         <div className="ip-location">
           <h5>LOCATION</h5>
-          <strong>
-            {city}, {country}
-          </strong>
-          <strong>{postalCode}</strong>
+          <div className="ip-location-info">
+            <strong>
+              {city}, {country}
+            </strong>
+            <strong>{postalCode}</strong>
+          </div>
         </div>
 
         <div className="ip-timezone">
@@ -87,11 +89,12 @@ function App() {
 
       <Map
         center={[position.latitude, position.longitude]}
-        zoom={20}
+        zoom={15}
         style={{
-          width: '100%',
+          width: '90%',
           height: '100vh',
         }}
+        className="map"
       >
         <TileLayer
           url={`https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiaGVybWVzLWNhcmV0dGEiLCJhIjoiY2tnNnY0cnFkMDE3dDJycW9tc2N1aGM4ZiJ9.Y9ce25Fz4n_PYJ08awiAkg`}
