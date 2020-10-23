@@ -5,6 +5,7 @@ import GlobalStyle from './styles/global';
 import { Container } from './styles/styles';
 
 import location from './utils/mapIcon';
+import 'leaflet/dist/leaflet.css';
 
 import patternBg from './images/pattern-bg.png';
 import arrow from './images/icon-arrow.svg';
@@ -35,7 +36,6 @@ function App() {
     setPostalCode(data.location.postalCode);
     setTimezone(data.location.timezone);
     setISP(data.isp);
-    console.log({ position, city, country, postalCode, timezone, ISP });
   }
 
   return (
@@ -91,10 +91,12 @@ function App() {
         center={[position.latitude, position.longitude]}
         zoom={15}
         style={{
-          width: '90%',
-          height: '100vh',
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
+          top: '80px',
+          zIndex: -2,
         }}
-        className="map"
       >
         <TileLayer
           url={`https://api.mapbox.com/styles/v1/mapbox/satellite-v9/tiles/256/{z}/{x}/{y}@2x?access_token=pk.eyJ1IjoiaGVybWVzLWNhcmV0dGEiLCJhIjoiY2tnNnY0cnFkMDE3dDJycW9tc2N1aGM4ZiJ9.Y9ce25Fz4n_PYJ08awiAkg`}

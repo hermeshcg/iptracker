@@ -152,7 +152,6 @@ export const Container = styled.div`
 
         .input-button {
           width: 90%;
-          margin-left: 20px;
         }
       }
     }
@@ -164,12 +163,14 @@ export const Container = styled.div`
       justify-content: space-between;
       width: 80%;
       height: 90%;
-      margin-left: 40px;
+      margin-left: 35px;
       .ip-address {
         padding: 10px 0;
         display: flex;
         align-items: center;
         justify-content: center;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
       }
 
       .ip-location {
@@ -177,6 +178,8 @@ export const Container = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
         h5 {
           padding-bottom: 4px;
         }
@@ -195,6 +198,8 @@ export const Container = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
+        border-right: none;
+        border-bottom: 1px solid #ccc;
       }
       .ip-isp {
         padding: 10px 0;
@@ -202,11 +207,6 @@ export const Container = styled.div`
         align-items: center;
         justify-content: center;
       }
-    }
-
-    .map {
-      height: 100vh;
-      width: 100vw;
     }
   }
 `;
