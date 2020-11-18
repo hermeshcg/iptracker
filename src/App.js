@@ -27,16 +27,21 @@ function App() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    const response = await api.get(
-      `/v1?apiKey=${process.env.REACT_APP_API_KEY}&ipAddress=${ip}`
-    );
-    const data = response.data;
-    setPosition({ latitude: data.location.lat, longitude: data.location.lat });
-    setCity(data.location.city);
-    setCountry(data.location.country);
-    setPostalCode(data.location.postalCode);
-    setTimezone(data.location.timezone);
-    setISP(data.isp);
+    await api
+      .get(`/v1?apiKey=${process.env.REACT_APP_API_KEY}&ipAddress=${ip}`)
+      .then((response) => {
+        const data = response.data;
+        setPosition({
+          latitude: data.location.lat,
+          longitude: data.location.lat,
+        });
+        setCity(data.location.city);
+        setCountry(data.location.country);
+        setPostalCode(data.location.postalCode);
+        setTimezone(data.location.timezone);
+        setISP(data.isp);
+      })
+      .catch((error) => alert('Desligue o adBlocker'));
   }
   const dataComp = {
     city: city,
